@@ -1,8 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Link as ReactScrollLink } from "react-scroll";
 import Img from "../../smallComp/image/Img";
-import { createFloatLoop } from "../ArtDirection/motionPresets";
 import { heroBadges, heroQuickFacts, heroWorkNotes } from "../portfolioContent";
 
 type MyNameProps = {
@@ -12,22 +10,16 @@ type MyNameProps = {
 export default function MyName({ onOpenStickerHunt }: MyNameProps) {
   return (
     <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-44 md:px-16 lg:px-20 2xl:px-72">
-      <div className="hero-grid absolute inset-0 opacity-[0.15]" />
-      <div className="absolute -left-20 top-20 h-44 w-44 rounded-full bg-[#ffcf6e]/20 blur-3xl" />
-      <div className="absolute right-0 top-28 h-56 w-56 rounded-full bg-[#85e7dc]/[0.15] blur-3xl" />
-      <div className="absolute bottom-8 left-1/3 h-40 w-40 rounded-full bg-[#ff8b92]/[0.12] blur-3xl" />
+      <div className="hero-grid absolute inset-0 opacity-[0.03]" />
 
-      <div className="relative grid items-center gap-14 xl:grid-cols-[1.05fr_0.95fr] xl:gap-10">
+      <div className="relative grid items-start gap-14 xl:grid-cols-[1.05fr_0.95fr] xl:gap-16">
         <div className="max-w-3xl">
           <motion.div
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="sticker-chip inline-flex items-center gap-3 px-4 py-2 font-Mono text-[11px] uppercase tracking-[0.24em] text-AAsecondary"
-            style={{ rotate: "-2deg" }}
-            whileHover={{ y: -2, rotate: 0 }}
+            className="font-Mono text-[11px] uppercase tracking-[0.2em] text-AAsecondary mb-6"
           >
-            <span className="h-2.5 w-2.5 rounded-full bg-[#85e7dc]" />
             Hanoi-based frontend engineer
           </motion.div>
 
@@ -35,7 +27,7 @@ export default function MyName({ onOpenStickerHunt }: MyNameProps) {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.35, delay: 0.05 }}
-            className="mt-7 max-w-4xl font-Header text-3xl leading-[0.96] text-[#fff8e7] sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[5.2rem]"
+            className="max-w-4xl font-Header text-4xl leading-[1.05] text-[#fcfcfd] sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[5.2rem]"
           >
             Building playful clarity for serious digital products.
           </motion.h1>
@@ -44,28 +36,31 @@ export default function MyName({ onOpenStickerHunt }: MyNameProps) {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.35, delay: 0.08 }}
-            className="mt-4 max-w-2xl font-Hand text-xl leading-tight text-[#ffe3a8] sm:text-2xl lg:text-[2rem]"
+            className="mt-6 max-w-2xl font-Text2 text-xl leading-relaxed text-[#e5c185] sm:text-2xl"
           >
-            Nguyen Chau Linh, turning dense workflows into interfaces that feel friendly, fast, and trustworthy.
+            Nguyen Chau Linh, turning dense workflows into interfaces that feel
+            friendly, fast, and trustworthy.
           </motion.p>
 
           <motion.div
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.35, delay: 0.12 }}
-            className="mt-8 max-w-3xl space-y-5 text-base leading-8 text-[#d5ddf2] sm:text-lg"
+            className="mt-8 max-w-3xl space-y-5 text-base leading-8 text-[#a3b8cc] sm:text-lg"
           >
             <p>
-              I&apos;m a <span className="text-AAsecondary keyword-hover">frontend engineer</span> focused on{" "}
-              <span className="text-AAsecondary keyword-hover">clean UI</span>,{" "}
-              <span className="text-AAsecondary keyword-hover">scalable code</span>, and product experiences that make
-              complex systems easier to understand.
+              I&apos;m a <span className="text-white">frontend engineer</span>{" "}
+              focused on <span className="text-white">clean UI</span>,{" "}
+              <span className="text-white">scalable code</span>, and product
+              experiences that make complex systems easier to understand.
             </p>
             <p>
-              My recent work spans <span className="text-AAsecondary keyword-hover">fintech platforms</span> at{" "}
-              <span className="text-AAsecondary keyword-hover">SSI Securities Corporation</span>, digital
-              transformation delivery at <span className="text-AAsecondary keyword-hover">NAL Viet Nam</span>, and
-              product flows where speed, trust, and maintainability all matter at once.
+              My recent work spans{" "}
+              <span className="text-white">fintech platforms</span> at{" "}
+              <span className="text-white">SSI Securities Corporation</span>,
+              digital transformation delivery at{" "}
+              <span className="text-white">NAL Viet Nam</span>, and product
+              flows where speed, trust, and maintainability all matter at once.
             </p>
           </motion.div>
 
@@ -78,14 +73,12 @@ export default function MyName({ onOpenStickerHunt }: MyNameProps) {
             {heroBadges.map((badge, index) => (
               <motion.div
                 key={badge}
-                {...createFloatLoop({
-                  distance: index % 2 === 0 ? 4 : 6,
-                  duration: 3 + index * 0.25,
-                  delay: index * 0.18,
-                })}
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
                 className="inline-flex"
               >
-                <span className="sticker-chip inline-flex rotate-[-1deg] items-center rounded-full px-4 py-2 font-Mono text-[11px] uppercase tracking-[0.18em] text-[#eef3ff]">
+                <span className="inline-flex items-center rounded border border-white/[0.08] bg-white/[0.02] px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc]">
                   {badge}
                 </span>
               </motion.div>
@@ -96,10 +89,10 @@ export default function MyName({ onOpenStickerHunt }: MyNameProps) {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.35, delay: 0.2 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-12 flex flex-wrap items-center gap-4"
           >
             <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
-              <button className="resume-button-hover comic-shadow rounded-full border border-AAsecondary/60 bg-AAsecondary px-5 py-3 font-Header text-xs font-bold uppercase tracking-[0.16em] text-[#17223f] transition duration-300 sm:px-8 sm:py-4 sm:text-sm">
+              <button className="rounded bg-AAsecondary px-6 py-3.5 font-Header text-sm font-semibold uppercase tracking-wider text-[#0a0f1c] transition duration-200 hover:bg-[#f6d7a4]">
                 View Resume
               </button>
             </a>
@@ -110,36 +103,9 @@ export default function MyName({ onOpenStickerHunt }: MyNameProps) {
               smooth={true}
               offset={-90}
               duration={250}
-              className="comic-shadow-soft inline-flex cursor-pointer items-center rounded-full border border-white/[0.15] bg-white/[0.06] px-5 py-3 font-Mono text-xs uppercase tracking-[0.16em] text-[#fff8e7] transition duration-300 hover:-translate-y-1 hover:border-[#85e7dc] hover:bg-white/10 sm:px-8 sm:py-4 sm:text-sm"
+              className="inline-flex cursor-pointer items-center rounded border border-white/[0.1] bg-transparent px-6 py-3.5 font-Header text-sm font-semibold uppercase tracking-wider text-white transition duration-200 hover:bg-white/[0.04]"
             >
               See Live Products
-            </ReactScrollLink>
-
-            <motion.button
-              type="button"
-              onClick={onOpenStickerHunt}
-              {...createFloatLoop({ distance: 3, duration: 3.4 })}
-              whileHover={{ y: -4, rotate: 0 }}
-              className="sticker-chip hidden rotate-[-2deg] items-center rounded-full border border-white/[0.14] px-5 py-3 font-Hand text-xl text-[#fff8e7] sm:inline-flex"
-            >
-              play sticker hunt
-            </motion.button>
-
-            <ReactScrollLink
-              to="ArcadeSection"
-              spy={true}
-              smooth={true}
-              offset={-90}
-              duration={250}
-            >
-              <motion.div
-                {...createFloatLoop({ distance: 4, duration: 3.0, rotate: [-3, 0, -3] })}
-                whileHover={{ y: -4, scale: 1.05, rotate: 0 }}
-                className="inline-flex cursor-pointer rotate-[2deg] items-center gap-2 rounded-full border border-[#ff8b92]/40 bg-[#ff8b92]/[0.12] px-5 py-3 font-Hand text-xl text-[#fff8e7] transition duration-300 hover:border-[#ff8b92]/60 hover:bg-[#ff8b92]/20"
-              >
-                <span className="text-2xl">🕹️</span>
-                Play Arcade Games
-              </motion.div>
             </ReactScrollLink>
           </motion.div>
         </div>
@@ -148,102 +114,46 @@ export default function MyName({ onOpenStickerHunt }: MyNameProps) {
           initial={{ y: 14, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.16 }}
-          className="relative mx-auto w-full max-w-[560px]"
+          className="relative mx-auto w-full max-w-[500px] mt-10 xl:mt-0"
         >
-          <span className="sparkle-twinkle absolute left-5 top-16 h-4 w-4 rounded-full border border-white/30 bg-[#ffcf6e]/80" />
-          <span className="sparkle-twinkle-delayed absolute right-16 top-28 h-3 w-3 rounded-full border border-white/30 bg-[#85e7dc]/80" />
-          <div className="absolute -right-2 top-8 h-24 w-24 rounded-full border border-white/20 bg-[#ffcf6e]/25 blur-2xl" />
-          <div className="absolute -left-8 bottom-10 h-28 w-28 rounded-full border border-white/20 bg-[#85e7dc]/20 blur-2xl" />
-
-          <div className="comic-panel relative rotate-[-1.5deg] overflow-hidden rounded-[20px] p-3 sm:rounded-[34px] sm:p-6">
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0))]" />
-
-            <div className="relative flex items-center justify-between gap-3">
-              <motion.div
-                {...createFloatLoop({ distance: 3, duration: 3.7, rotate: [-4, -2, -4] })}
-                className="sticker-chip inline-flex rounded-full px-4 py-2 font-Hand text-lg text-[#fff8e7]"
-              >
-                profile crop
-              </motion.div>
-              <div className="rounded-full border border-white/[0.15] bg-[#22335a] px-4 py-2 font-Mono text-[11px] uppercase tracking-[0.18em] text-[#cdd7f7]">
-                UI x Systems x Delivery
-              </div>
+          <div className="flex flex-col gap-6">
+            <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#131b2f] p-2">
+              <Img
+                src={"/img/portrait-face-crop-wider.png"}
+                alt="Portrait crop of Nguyen Chau Linh"
+                className="aspect-[4/3] w-full rounded-xl object-cover opacity-90"
+              />
             </div>
 
-            <div className="relative mt-4 overflow-hidden rounded-[18px] border border-white/10 bg-[#f4deb7] p-3 sm:mt-5 sm:rounded-[28px] sm:p-5">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.45),transparent_30%),linear-gradient(180deg,#f9e8bf_0%,#f4d8a8_100%)]" />
-              <div className="absolute -left-8 top-6 h-20 w-20 rounded-full bg-[#ff8b92]/40 blur-2xl" />
-              <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-[#85e7dc]/[0.35] blur-2xl" />
-
-              <div className="relative grid gap-4 lg:grid-cols-[0.94fr_1.06fr]">
-                <div className="relative overflow-hidden rounded-[24px] border-2 border-[#24335b] bg-[#24335b] shadow-[10px_10px_0_rgba(23,34,63,0.18)]">
-                  <div className="relative min-h-[280px] overflow-hidden rounded-[20px] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.5),transparent_35%),linear-gradient(180deg,#f9e8bf_0%,#f4d8a8_100%)] p-4">
-                    <div className="absolute left-4 top-4 h-4 w-4 rounded-full border-2 border-[#24335b] bg-[#ffcf6e]" />
-                    <div className="absolute right-6 top-8 h-3 w-3 rounded-full border-2 border-[#24335b] bg-[#85e7dc]" />
-                    <div className="absolute left-6 top-14 h-10 w-[6px] rotate-[-18deg] rounded-full bg-[#24335b]" />
-                    <div className="absolute right-5 bottom-16 h-12 w-[6px] rotate-[18deg] rounded-full bg-[#24335b]" />
-
-                    <div className="relative mx-auto mt-1 w-full max-w-[232px] rounded-[28px] border-[4px] border-[#24335b] bg-[#fff8ea] p-2 shadow-[10px_10px_0_rgba(23,34,63,0.12)]">
-                      <div className="overflow-hidden rounded-[22px] border-[3px] border-[#24335b] bg-[#fff8ea]">
-                        <Img
-                          src={"/img/portrait-face-crop-wider.png"}
-                          alt="Portrait crop of Nguyen Chau Linh"
-                          className="h-[214px] w-full object-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 right-4 rounded-[20px] border border-[#fff8ea]/70 bg-[#fff8ea]/[0.92] px-4 py-3 text-[#17223f] comic-shadow-soft">
-                    <div className="font-Hand text-2xl leading-none">From concept to release</div>
-                    <div className="mt-2 font-Mono text-[11px] uppercase tracking-[0.2em] text-[#31446f]">
-                      calm interfaces for complex work
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col justify-between gap-4 py-1">
-                  {heroWorkNotes.map((note, index) => (
-                    <motion.div
-                      key={note.title}
-                      {...createFloatLoop({
-                        distance: index % 2 === 0 ? 5 : 3,
-                        duration: 3.8 + index * 0.35,
-                        delay: index * 0.14,
-                      })}
-                      className="w-full"
-                    >
-                      <div
-                        className={`rounded-[24px] border-2 border-[#24335b]/[0.15] px-5 py-4 shadow-[8px_8px_0_rgba(23,34,63,0.12)] ${note.className}`}
-                      >
-                        <div className="font-Header text-lg font-bold">{note.title}</div>
-                        <p className="mt-2 text-sm leading-6 text-[#23345f]/90">{note.text}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-3 grid gap-2 sm:mt-5 sm:grid-cols-3 sm:gap-3">
-              {heroQuickFacts.map((fact, index) => (
-                <motion.div
-                  key={fact.label}
-                  {...createFloatLoop({
-                    distance: index === 1 ? 4 : 3,
-                    duration: 3.4 + index * 0.2,
-                    delay: index * 0.12,
-                  })}
+            <div className="flex flex-col gap-3">
+              {heroWorkNotes.map((note, index) => (
+                <div
+                  key={note.title}
+                  className="flex flex-col rounded-xl border border-white/[0.04] bg-white/[0.02] p-5 transition-colors hover:bg-white/[0.04]"
                 >
-                  <div
-                    className={`rounded-[16px] border border-white/[0.12] bg-white/[0.08] px-3 py-3 sm:rounded-[22px] sm:px-4 sm:py-4 ${
-                      index === 1 ? "rotate-[-1deg]" : index === 2 ? "rotate-[1deg]" : ""
-                    }`}
-                  >
-                    <div className="font-Mono text-[11px] uppercase tracking-[0.18em] text-[#ffe3a8]">{fact.label}</div>
-                    <div className="mt-2 font-Header text-lg text-[#fff8e7]">{fact.value}</div>
+                  <div className="font-Header text-lg font-medium text-white">
+                    {note.title}
                   </div>
-                </motion.div>
+                  <p className="mt-2 text-sm leading-relaxed text-[#a3b8cc]">
+                    {note.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-3 gap-3">
+              {heroQuickFacts.map((fact, index) => (
+                <div
+                  key={fact.label}
+                  className="rounded-xl border border-white/[0.04] bg-white/[0.02] p-4 text-center transition-colors hover:bg-white/[0.04]"
+                >
+                  <div className="font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc]">
+                    {fact.label}
+                  </div>
+                  <div className="mt-2 font-Header text-xl font-medium text-white">
+                    {fact.value}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

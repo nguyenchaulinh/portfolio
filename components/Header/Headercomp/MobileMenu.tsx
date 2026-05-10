@@ -1,13 +1,23 @@
-import React, { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
+import { Dispatch, SetStateAction } from "react";
 import { Link } from "react-scroll";
 
 const navItems = [
   { id: "aboutSection", label: "About", number: "01", offset: -70 },
-  { id: "WhereIhaveWorkedSection", label: "Experience", number: "02", offset: -220 },
+  {
+    id: "WhereIhaveWorkedSection",
+    label: "Experience",
+    number: "02",
+    offset: -220,
+  },
   { id: "ProductsSection", label: "Products", number: "03", offset: -70 },
   { id: "ArcadeSection", label: "Arcade", number: "🕹️", offset: -70 },
-  { id: "SomethingIveBuiltSection", label: "Case Studies", number: "04", offset: -70 },
+  {
+    id: "SomethingIveBuiltSection",
+    label: "Case Studies",
+    number: "04",
+    offset: -70,
+  },
   { id: "GetInTouchSection", label: "Contact", number: "05", offset: -70 },
 ];
 
@@ -18,7 +28,12 @@ type MobileMenuProps = {
   showElement: boolean;
 };
 
-export default function MobileMenu({ rotate, setRotate, setShowElement, showElement }: MobileMenuProps) {
+export default function MobileMenu({
+  rotate,
+  setRotate,
+  setShowElement,
+  showElement,
+}: MobileMenuProps) {
   const closeMenu = () => {
     setRotate(!rotate);
     setShowElement(!showElement);
@@ -31,25 +46,26 @@ export default function MobileMenu({ rotate, setRotate, setShowElement, showElem
       transition={{ x: { duration: 0.35 } }}
       className="fixed inset-0 z-20 flex lg:hidden"
     >
-      <div onClick={() => closeMenu()} className="h-full flex-1 bg-[#10192f]/[0.55] backdrop-blur-sm" />
+      <div
+        onClick={() => closeMenu()}
+        className="h-full flex-1 bg-[#10192f]/[0.55] backdrop-blur-sm"
+      />
 
-      <div className="relative h-full w-[82%] max-w-sm overflow-hidden rounded-l-[36px] border-l border-white/[0.12] bg-[#182441]/95 px-6 pb-10 pt-24">
-        <div className="absolute left-4 top-4 rotate-[-6deg] rounded-full border border-white/[0.12] bg-white/10 px-4 py-2 font-Hand text-xl text-[#fff8e7]">
-          menu board
+      <div className="relative h-full w-[82%] max-w-sm overflow-hidden border-l border-white/[0.06] bg-[#0a0f1c]/95 px-6 pb-10 pt-24">
+        <div className="absolute left-4 top-4 rounded border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc]">
+          menu
         </div>
-        <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#85e7dc]/[0.18] blur-3xl" />
-        <div className="absolute bottom-4 left-0 h-32 w-32 rounded-full bg-[#ffcf6e]/[0.14] blur-3xl" />
 
         <div className="relative flex h-full flex-col">
           <div className="mb-8">
-            <div className="font-Header text-3xl text-[#fff8e7]">Navigate</div>
-            <p className="mt-2 text-sm leading-6 text-[#d0d8ee]">
+            <div className="font-Header text-3xl text-white">Navigate</div>
+            <p className="mt-2 font-Text2 text-sm leading-6 text-[#a3b8cc]">
               Jump straight to the sections recruiters usually care about first.
             </p>
           </div>
 
           <div className="flex flex-1 flex-col gap-4">
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <Link
                 key={item.id}
                 to={item.id}
@@ -58,21 +74,27 @@ export default function MobileMenu({ rotate, setRotate, setShowElement, showElem
                 offset={item.offset}
                 duration={220}
                 onClick={() => closeMenu()}
-                className="group flex cursor-pointer items-center gap-3 rounded-[24px] border border-white/10 bg-white/[0.08] px-4 py-4"
+                className="group flex cursor-pointer items-center gap-4 rounded-[16px] border border-white/[0.06] bg-white/[0.02] px-4 py-4 hover:bg-white/[0.06]"
               >
-                <span className="rounded-full border border-AAsecondary/[0.35] bg-AAsecondary/[0.12] px-3 py-2 font-Mono text-[10px] uppercase tracking-[0.2em] text-AAsecondary transition duration-300 group-hover:rotate-[-6deg]">
+                <span className="rounded border border-[#e5c185]/30 bg-[#e5c185]/10 px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#e5c185]">
                   {item.number}
                 </span>
                 <div>
-                  <div className="font-Header text-lg text-[#fff8e7]">{item.label}</div>
-                  <div className="font-Hand text-base leading-none text-[#b7c4ea]">tap to scroll</div>
+                  <div className="font-Header text-lg text-white">
+                    {item.label}
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer" className="mt-8">
-            <button className="w-full rounded-full border border-AAsecondary/60 bg-AAsecondary px-6 py-4 font-Header text-sm font-bold uppercase tracking-[0.16em] text-[#17223f] shadow-[0_16px_28px_rgba(11,18,40,0.22)]">
+          <a
+            href={"/resume.pdf"}
+            target={"_blank"}
+            rel="noreferrer"
+            className="mt-8"
+          >
+            <button className="w-full rounded bg-white/[0.06] border border-white/[0.1] px-6 py-4 font-Header text-sm font-semibold uppercase tracking-wider text-[#fcfcfd] transition duration-200 hover:bg-white/[0.1]">
               Open Resume
             </button>
           </a>

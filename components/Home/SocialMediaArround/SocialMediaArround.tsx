@@ -1,13 +1,16 @@
-import React from "react";
 import { motion } from "framer-motion";
 import FacebookIcon from "../../Icons/FacebookIcon";
 import GithubIcon from "../../Icons/GithubIcon";
 import InstagramIcon from "../../Icons/InstagramIcon";
 import LinkedinIcon from "../../Icons/LinkedinIcon";
-import { createFloatLoop } from "../ArtDirection/motionPresets";
 
 const socialLinks = [
-  { href: "https://github.com/nguyenchaulinh97", Icon: GithubIcon, label: "GitHub", rotate: "rotate-[-4deg]" },
+  {
+    href: "https://github.com/nguyenchaulinh97",
+    Icon: GithubIcon,
+    label: "GitHub",
+    rotate: "rotate-[-4deg]",
+  },
   {
     href: "https://www.linkedin.com/in/nguyenchaulinh/",
     Icon: LinkedinIcon,
@@ -38,32 +41,23 @@ export default function SocialMediaArround() {
         className="fixed bottom-8 left-5 z-20 hidden lg:flex xl:left-8"
       >
         <div className="flex flex-col items-center gap-4">
-          <motion.div
-            {...createFloatLoop({ distance: 3, duration: 3.5, rotate: [-6, -4, -6] })}
-            className="rounded-full border border-white/[0.12] bg-white/[0.08] px-4 py-2 font-Hand text-xl text-[#fff8e7]"
-          >
+          <div className="rounded border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc]">
             find me
-          </motion.div>
+          </div>
 
-          <div className="relative flex flex-col items-center gap-3 rounded-[28px] border border-white/[0.12] bg-white/[0.06] px-3 py-4 shadow-[0_12px_24px_rgba(11,18,40,0.18)]">
-            <span className="sparkle-twinkle absolute -right-2 top-5 h-3 w-3 rounded-full border border-white/30 bg-[#ffcf6e]" />
-            {socialLinks.map((link, index) => (
-              <motion.div
-                key={link.href}
-                {...createFloatLoop({ distance: index % 2 === 0 ? 4 : 6, duration: 3.1 + index * 0.2, delay: index * 0.14 })}
-              >
-                <motion.a
+          <div className="relative flex flex-col items-center gap-3 rounded-[24px] border border-white/[0.08] bg-white/[0.02] px-3 py-4">
+            {socialLinks.map((link) => (
+              <div key={link.href}>
+                <a
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  whileHover={{ y: -4, rotate: 0 }}
-                  transition={{ duration: 0.15 }}
-                  className={`group flex h-14 w-14 items-center justify-center rounded-[18px] border border-white/[0.12] bg-[#fff8ea] text-[#17223f] shadow-[8px_8px_0_rgba(23,34,63,0.12)] ${link.rotate}`}
+                  className="group flex h-14 w-14 items-center justify-center rounded-[16px] border border-white/[0.06] bg-white/[0.02] text-[#a3b8cc] transition duration-300 hover:bg-white/[0.06] hover:text-[#fcfcfd]"
                   aria-label={link.label}
                 >
-                  <link.Icon className="h-6 w-6 fill-current text-[#17223f] transition duration-300 group-hover:text-[#31446f]" />
-                </motion.a>
-              </motion.div>
+                  <link.Icon className="h-6 w-6 fill-current transition duration-300" />
+                </a>
+              </div>
             ))}
           </div>
 
@@ -78,29 +72,23 @@ export default function SocialMediaArround() {
         className="fixed bottom-8 right-5 z-20 hidden lg:flex xl:right-8"
       >
         <div className="flex flex-col items-center gap-4">
-          <motion.div
-            {...createFloatLoop({ distance: 3, duration: 3.7, rotate: [4, 2, 4] })}
-            className="rounded-full border border-white/[0.12] bg-white/[0.08] px-4 py-2 font-Hand text-xl text-[#fff8e7]"
-          >
+          <div className="rounded border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc]">
             say hi
-          </motion.div>
+          </div>
 
-          <motion.a
+          <a
             href="mailto:nguyenchaulinh97@gmail.com"
             target="_blank"
             rel="noreferrer"
-            whileHover={{ y: -4, rotate: 0 }}
-            transition={{ duration: 0.15 }}
-            className="group relative flex flex-col items-center rounded-[24px] border border-white/[0.12] bg-white/[0.06] px-3 py-5 shadow-[0_12px_24px_rgba(11,18,40,0.18)]"
+            className="group relative flex flex-col items-center rounded-[24px] border border-white/[0.08] bg-white/[0.02] px-3 py-5 transition duration-300 hover:bg-white/[0.06]"
           >
-            <span className="sparkle-twinkle absolute -left-2 top-4 h-3 w-3 rounded-full border border-white/30 bg-[#85e7dc]" />
             <div
-              className="font-Mono text-[11px] uppercase tracking-[0.22em] text-[#ffe3a8]"
+              className="font-Mono text-[11px] tracking-[0.22em] text-[#a3b8cc] group-hover:text-[#fcfcfd] transition duration-300"
               style={{ writingMode: "vertical-rl" }}
             >
               nguyenchaulinh97@gmail.com
             </div>
-          </motion.a>
+          </a>
 
           <div className="dotted-connector h-24 w-[4px]" />
         </div>

@@ -1,23 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght,SOFT@9..144,600,100&family=Nunito:wght@400;500;700;800&family=Patrick+Hand&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=Patrick+Hand&family=Space+Mono:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --site-bg: #192646;
-  --site-panel: rgba(254, 247, 221, 0.12);
-  --site-panel-strong: rgba(254, 247, 221, 0.18);
-  --site-panel-solid: #fff4cf;
-  --site-ink: #17223f;
-  --site-ink-soft: #31446f;
-  --site-cream: #fff8e7;
-  --site-gold: #ffcf6e;
-  --site-pink: #ff8b92;
-  --site-cyan: #85e7dc;
-  --site-blue: #9eb5ff;
-  --site-shadow: 0 18px 45px rgba(11, 18, 40, 0.3);
-  --site-shadow-soft: 0 10px 24px rgba(11, 18, 40, 0.18);
+  --site-bg: #0a0f1c;
+  --site-panel: rgba(255, 255, 255, 0.03);
+  --site-panel-strong: rgba(255, 255, 255, 0.06);
+  --site-panel-solid: #131b2f;
+  --site-ink: #fcfcfd;
+  --site-ink-soft: #a3b8cc;
+  --site-cream: #fcfcfd;
+  --site-gold: #e5c185;
+  --site-pink: #e5c185;
+  --site-cyan: #a3b8cc;
+  --site-blue: #a3b8cc;
+  --site-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --site-shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 @layer base {
@@ -27,29 +27,10 @@
 
   body {
     background-color: var(--site-bg);
-    background-image:
-      radial-gradient(circle at top left, rgba(255, 207, 110, 0.16), transparent 22%),
-      radial-gradient(circle at 85% 10%, rgba(133, 231, 220, 0.18), transparent 18%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 52%),
-      linear-gradient(180deg, #1b2848 0%, #15203b 100%);
     color: var(--site-cream);
-    font-family: "Nunito", sans-serif;
+    font-family: "DM Sans", sans-serif;
     min-height: 100vh;
     position: relative;
-  }
-
-  body::before {
-    background-image:
-      radial-gradient(rgba(255, 255, 255, 0.06) 0.9px, transparent 0.9px),
-      radial-gradient(rgba(255, 207, 110, 0.08) 1.1px, transparent 1.1px);
-    background-position: 0 0, 18px 18px;
-    background-size: 36px 36px;
-    content: "";
-    inset: 0;
-    opacity: 0.4;
-    pointer-events: none;
-    position: fixed;
-    z-index: 0;
   }
 
   body > #__next {
@@ -76,29 +57,24 @@
   }
 
   .comic-shadow {
-    box-shadow: var(--site-shadow);
+    /* removed heavy shadows */
   }
 
   .comic-shadow-soft {
-    box-shadow: var(--site-shadow-soft);
+    /* removed heavy shadows */
   }
 
-  .paper-panel {
-    background:
-      linear-gradient(180deg, rgba(255, 248, 231, 0.14) 0%, rgba(255, 248, 231, 0.08) 100%),
-      rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 248, 231, 0.12);
-    box-shadow: var(--site-shadow-soft);
-    backdrop-filter: blur(16px);
-  }
-
+  .paper-panel,
   .comic-panel {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.07) 100%),
-      rgba(22, 33, 62, 0.44);
-    border: 1px solid rgba(255, 248, 231, 0.12);
-    box-shadow: var(--site-shadow);
-    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    transition: background-color 0.2s ease;
+  }
+
+  .paper-panel:hover,
+  .comic-panel:hover {
+    background: rgba(255, 255, 255, 0.04);
   }
 
   .section-doodle {
@@ -243,7 +219,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 a {

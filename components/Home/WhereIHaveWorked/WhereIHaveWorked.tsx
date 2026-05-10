@@ -1,9 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 import ArrowIcon from "../../Icons/ArrowIcon";
-import DoodleMascot from "../ArtDirection/DoodleMascot";
-import { stickerHover } from "../ArtDirection/motionPresets";
-import ScribbleDivider from "../ArtDirection/ScribbleDivider";
 import SectionHeader from "../ArtDirection/SectionHeader";
 import { experienceEntries } from "../portfolioContent";
 
@@ -17,9 +14,6 @@ export default function WhereIHaveWorked() {
       data-aos="fade-up"
       className="relative overflow-hidden bg-AAprimary px-4 py-16 sm:px-16 sm:py-20 md:px-16 lg:px-24 2xl:px-72"
     >
-      <div className="absolute left-0 top-24 h-48 w-48 rounded-full bg-[#85e7dc]/[0.08] blur-3xl" />
-      <div className="absolute right-0 top-20 h-56 w-56 rounded-full bg-[#ffcf6e]/[0.1] blur-3xl" />
-
       <div className="relative mx-auto max-w-[1200px]">
         <SectionHeader
           number="02"
@@ -29,22 +23,18 @@ export default function WhereIHaveWorked() {
           lineClassName="max-w-[260px]"
         />
 
-        <ScribbleDivider label="tap around" className="mt-8 max-w-3xl" />
-
-        <div className="comic-panel relative mt-10 overflow-hidden rounded-[20px] p-3 sm:rounded-[34px] sm:p-6 xl:p-10">
-          <div className="absolute left-10 top-0 h-7 w-24 -translate-y-1/2 rotate-[4deg] rounded-[10px] bg-[#cce5ff]" />
-
+        <div className="mt-12">
           {/* Mobile: compact horizontal tab strip */}
-          <div className="relative mb-4 xl:hidden">
+          <div className="relative mb-6 xl:hidden">
             <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
               {experienceEntries.map((entry, index) => (
                 <button
                   key={entry.company}
                   onClick={() => setActiveIndex(index)}
-                  className={`shrink-0 rounded-full border px-4 py-2 font-Header text-sm transition duration-200 ${
+                  className={`shrink-0 rounded px-4 py-2 font-Header text-sm transition duration-200 ${
                     activeIndex === index
-                      ? "border-AAsecondary/40 bg-AAsecondary text-[#17223f] shadow-[6px_6px_0_rgba(23,34,63,0.12)]"
-                      : "border-white/[0.12] bg-white/[0.06] text-[#d5ddf2]"
+                      ? "bg-white/[0.1] text-white"
+                      : "bg-white/[0.02] text-[#a3b8cc] hover:bg-white/[0.06]"
                   }`}
                 >
                   {entry.buttonLabel}
@@ -53,70 +43,75 @@ export default function WhereIHaveWorked() {
             </div>
           </div>
 
-          <div className="relative grid gap-6 xl:grid-cols-[260px_1fr]">
+          <div className="relative grid gap-8 xl:grid-cols-[260px_1fr]">
             {/* Desktop sidebar tabs - hidden on mobile */}
-            <ExperienceTabs activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+            <ExperienceTabs
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+            />
 
             <motion.article
               key={experience.company}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
-              className={`paper-grid rounded-[18px] border-2 border-[#24335b]/10 p-4 text-[#17223f] shadow-[10px_10px_0_rgba(23,34,63,0.12)] sm:rounded-[30px] sm:p-6 xl:p-8 ${experience.paperClass}`}
+              className="comic-panel rounded-[18px] p-6 sm:rounded-[30px] sm:p-8 xl:p-10"
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <div className="font-Mono text-[10px] uppercase tracking-[0.22em] text-[#5a6f99] sm:text-[11px]">{experience.company}</div>
-                  <h3 className="mt-2 font-Header text-xl leading-tight sm:mt-3 sm:text-2xl lg:text-3xl">{experience.role}</h3>
-                </div>
-
-                <div className="shrink-0 rotate-[4deg] rounded-full border border-[#24335b]/10 bg-white/60 px-3 py-1.5 font-Hand text-base sm:px-4 sm:py-2 sm:text-xl">
-                  {experience.note}
+                  <div className="font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc] sm:text-[11px]">
+                    {experience.company}
+                  </div>
+                  <h3 className="mt-2 font-Header text-xl leading-tight text-white sm:mt-3 sm:text-2xl lg:text-3xl">
+                    {experience.role}
+                  </h3>
                 </div>
               </div>
 
               <div className="mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">
-                <span className="rounded-full border border-[#24335b]/10 bg-white/60 px-3 py-1.5 font-Mono text-[10px] uppercase tracking-[0.16em] text-[#31446f] sm:px-4 sm:py-2 sm:text-[11px]">
+                <span className="rounded border border-white/[0.08] bg-white/[0.02] px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc] sm:px-4 sm:py-2">
                   {experience.period}
                 </span>
                 {experience.location ? (
-                  <span className="rounded-full border border-[#24335b]/10 bg-white/60 px-3 py-1.5 font-Mono text-[10px] uppercase tracking-[0.16em] text-[#31446f] sm:px-4 sm:py-2 sm:text-[11px]">
+                  <span className="rounded border border-white/[0.08] bg-white/[0.02] px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc] sm:px-4 sm:py-2">
                     {experience.location}
                   </span>
                 ) : null}
                 {activeIndex === 0 ? (
-                  <span className="rounded-full border border-[#24335b]/10 bg-[#85e7dc]/50 px-3 py-1.5 font-Mono text-[10px] uppercase tracking-[0.16em] text-[#17223f] sm:px-4 sm:py-2 sm:text-[11px]">
+                  <span className="rounded border border-[#e5c185]/30 bg-[#e5c185]/10 px-3 py-1.5 font-Mono text-[10px] uppercase tracking-widest text-[#e5c185] sm:px-4 sm:py-2">
                     Current Role
                   </span>
                 ) : null}
               </div>
 
-              <ScribbleDivider label="what shipped" className="mt-5 sm:mt-8" />
+              <div className="my-8 h-[1px] w-full bg-white/[0.06]" />
 
-              <div className="mt-4 grid gap-3 sm:mt-7 sm:gap-4">
-                {experience.bullets.map(bullet => (
-                  <div key={bullet} className="flex items-start gap-2 sm:gap-3">
-                    <ArrowIcon className={"mt-1 h-3.5 w-3.5 flex-none text-[#17223f] sm:h-4 sm:w-4"} />
-                    <span className="text-sm leading-6 text-[#31446f] sm:leading-7">{bullet}</span>
+              <div className="grid gap-4 sm:gap-5">
+                {experience.bullets.map((bullet) => (
+                  <div key={bullet} className="flex items-start gap-3">
+                    <ArrowIcon
+                      className={
+                        "mt-1 h-3.5 w-3.5 flex-none text-white sm:h-4 sm:w-4"
+                      }
+                    />
+                    <span className="text-sm leading-6 text-[#a3b8cc] sm:leading-7">
+                      {bullet}
+                    </span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-1.5 sm:mt-8 sm:gap-2">
-                {experience.stack.map(item => (
+              <div className="mt-8 flex flex-wrap gap-2">
+                {experience.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-[#24335b]/10 bg-white/60 px-3 py-1 font-Mono text-[10px] uppercase tracking-[0.14em] text-[#31446f] sm:px-4 sm:py-2 sm:text-[11px]"
+                    className="rounded border border-white/[0.08] bg-white/[0.02] px-3 py-1 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc] sm:px-4 sm:py-2"
                   >
                     {item}
                   </span>
                 ))}
               </div>
             </motion.article>
-          </div>
-
-          <div className="mt-8 hidden justify-end sm:flex">
-            <DoodleMascot speech="career notes, but fun" label="timeline buddy" className="scale-[0.9]" />
           </div>
         </div>
       </div>
@@ -133,38 +128,42 @@ function ExperienceTabs({
 }) {
   return (
     <div className="hidden space-y-4 xl:block">
-      <div className="paper-panel rounded-[30px] p-4">
-        <div className="font-Mono text-[10px] uppercase tracking-[0.24em] text-[#ffe3a8]">Select a chapter</div>
-        <div className="mt-4 flex flex-col gap-3">
+      <div className="comic-panel rounded-[24px] p-4">
+        <div className="px-2 font-Mono text-[10px] uppercase tracking-widest text-[#a3b8cc]">
+          Select a chapter
+        </div>
+        <div className="mt-4 flex flex-col gap-2">
           {experienceEntries.map((experience, index) => (
-            <motion.button
+            <button
               key={experience.company}
-              {...stickerHover}
               onClick={() => setActiveIndex(index)}
-              className={`rounded-[22px] border px-4 py-4 text-left transition duration-300 ${
+              className={`rounded-[16px] px-4 py-4 text-left transition duration-200 ${
                 activeIndex === index
-                  ? "rotate-[-1deg] border-AAsecondary/[0.4] bg-AAsecondary text-[#17223f] shadow-[10px_10px_0_rgba(23,34,63,0.14)]"
-                  : "border-white/[0.12] bg-white/[0.06] text-[#d5ddf2]"
+                  ? "bg-white/[0.06] text-white"
+                  : "text-[#a3b8cc] hover:bg-white/[0.02]"
               }`}
             >
-              <div className="font-Header text-lg">{experience.buttonLabel}</div>
+              <div className="font-Header text-lg">
+                {experience.buttonLabel}
+              </div>
               <div
-                className={`mt-1 font-Mono text-[10px] uppercase tracking-[0.18em] ${
-                  activeIndex === index ? "text-[#24335b]" : "text-[#ffe3a8]"
+                className={`mt-1 font-Mono text-[10px] uppercase tracking-widest ${
+                  activeIndex === index ? "text-[#e5c185]" : "text-[#a3b8cc]"
                 }`}
               >
                 {experience.period}
               </div>
-            </motion.button>
+            </button>
           ))}
         </div>
       </div>
 
-      <div className="rounded-[28px] border border-white/[0.12] bg-white/[0.06] p-5 text-sm leading-7 text-[#d5ddf2]">
-        <div className="font-Hand text-2xl text-[#fff8e7]">What matters most</div>
+      <div className="comic-panel rounded-[24px] p-5 text-sm leading-7 text-[#a3b8cc]">
+        <div className="font-Header text-lg text-white">What matters most</div>
         <p className="mt-3">
-          The common thread across these roles is product-facing frontend work where clarity, delivery quality, and
-          business context all matter together.
+          The common thread across these roles is product-facing frontend work
+          where clarity, delivery quality, and business context all matter
+          together.
         </p>
       </div>
     </div>
